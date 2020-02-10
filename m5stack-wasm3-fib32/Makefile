@@ -3,6 +3,6 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := m5stack-wasm3-hello
+PROJECT_NAME := m5stack-wasm3-fib32
 
 include $(IDF_PATH)/make/project.mk
