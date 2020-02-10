@@ -2,6 +2,8 @@
 
 WebAssembly interpreter [wasm3](https://github.com/wasm3/wasm3) on M5Stack.
 
+![](https://github.com/h1romas4/m5stack-wasm3-testing/blob/master/docs/images/m5stack-wasm3-01.jpg)
+
 ## Require
 
 * M5Stack
