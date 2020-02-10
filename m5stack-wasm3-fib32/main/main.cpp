@@ -39,7 +39,7 @@ static void run_wasm(void)
 
     M5.Lcd.printf("Running...\n");
 
-    const char* i_argv[2] = { "8", NULL };
+    const char* i_argv[2] = { "16", NULL };
     result = m3_CallWithArgs (f, 1, i_argv);
 
     if (result) FATAL("m3_CallWithArgs: %s", result);
