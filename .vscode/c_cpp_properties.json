@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceRoot}",
+                "${env:IDF_PATH}/components/"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceRoot}",
+                    "${env:IDF_PATH}/esp-idf/components/"
+                ]
+            },
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "~/toolchain/xtensa-esp32-elf",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

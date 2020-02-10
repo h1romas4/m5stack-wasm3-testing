@@ -1,0 +1,12 @@
+[submodule "esp-idf"]
+	path = esp-idf
+	url = https://github.com/espressif/esp-idf.git
+[submodule "wasm3"]
+	path = wasm3
+	url = https://github.com/wasm3/wasm3.git
+[submodule "m5stack-wasm3-fib32/components/arduino"]
+	path = m5stack-wasm3-fib32/components/arduino
+	url = https://github.com/espressif/arduino-esp32.git
+[submodule "m5stack-wasm3-fib32/components/m5stack"]
+	path = m5stack-wasm3-fib32/components/m5stack
+	url = https://github.com/m5stack/M5Stack.git
