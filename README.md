@@ -31,14 +31,23 @@ make flash monitor
 
 * [Performance / Wasm3 on MCUs](https://github.com/wasm3/wasm3/blob/master/docs/Performance.md#wasm3-on-mcus)
 
-M5Stack stack overflow? (ESP32 is not support TCO yet.)
-
 m5stack-wasm3-fib32/main/main.cpp
 
 ```
-// const char* i_argv[2] = { "24", NULL };
+// const char* i_argv[2] = { "24", NULL }; // TODO: It will be reset.
 const char* i_argv[2] = { "16", NULL };
 result = m3_CallWithArgs (f, 1, i_argv);
+```
+
+```
+Total sizes:
+ DRAM .data size:    7496 bytes
+ DRAM .bss  size:    7280 bytes
+Used static DRAM:   14776 bytes ( 109804 available, 11.9% used)
+Used static IRAM:  114268 bytes (  16804 available, 87.2% used)
+      Flash code:  172466 bytes
+    Flash rodata:  131136 bytes
+Total image size:~ 425366 bytes (.bin may be padded larger)
 ```
 
 ## Dependencies
