@@ -1,6 +1,6 @@
 # m5stack-wasm3-testing
 
-WebAssembly interpreter [wasm3](https://github.com/wasm3/wasm3) on M5Stack.
+WebAssembly interpreter [Wasm3](https://github.com/wasm3/wasm3) on M5Stack.
 
 ![](https://github.com/h1romas4/m5stack-wasm3-testing/blob/master/docs/images/m5stack-wasm3-01.jpg)
 
@@ -54,7 +54,7 @@ Total image size:~ 425366 bytes (.bin may be padded larger)
 
 |name|version|
 |-|-|
+|[Wasm3](https://github.com/wasm3/wasm3)|0.4.6|
 |[esp-idf](https://docs.espressif.com/projects/esp-idf/en/v3.2.3/get-started/index.html)|v3.2.3|
 |[esp32-arduino](https://github.com/espressif/arduino-esp32)|1.0.4|
 |[m5stack](https://github.com/m5stack/M5Stack)|0.2.9|
-|[wasm3](https://github.com/wasm3/wasm3)|0.4.6|
