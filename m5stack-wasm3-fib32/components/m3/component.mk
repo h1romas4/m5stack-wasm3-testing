@@ -8,7 +8,7 @@ COMPONENT_ADD_INCLUDEDIRS := src
 CFLAGS += -DESP32
 # CFLAGS += -DM3_IN_IRAM
 CFLAGS += -Dd_m3LogOutput=false
-CFLAGS += -Dd_m3LogOutput=false
+CFLAGS += -Dd_m3VerboseLogs=false
 CFLAGS += -O3
 CFLAGS += -freorder-blocks
 # CFLAGS += -Dd_m3FixedHeap=65536
