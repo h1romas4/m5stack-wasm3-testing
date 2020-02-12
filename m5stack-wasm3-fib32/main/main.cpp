@@ -44,7 +44,7 @@ static void run_wasm(void)
 
     M5.Lcd.printf("Running...\n");
 
-    const char* i_argv[2] = { "24", NULL };
+    const char* i_argv[2] = { "17", NULL };
     M5.Lcd.printf(" *fib(%s)\n", i_argv[0]);
     result = m3_CallWithArgs (f, 1, i_argv);
 

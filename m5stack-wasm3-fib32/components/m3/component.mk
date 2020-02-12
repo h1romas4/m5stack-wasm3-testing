@@ -11,7 +11,9 @@ CFLAGS += -Dd_m3LogOutput=false
 CFLAGS += -Dd_m3LogOutput=false
 CFLAGS += -O3
 CFLAGS += -freorder-blocks
+# CFLAGS += -Dd_m3FixedHeap=65536
 # CFLAGS += -Dd_m3MaxFunctionStackHeight=128
-# CFLAGS += -Dd_m3CodePageAlignSize=4096
+# CFLAGS += -Dd_m3CodePageAlignSize=1024
+# CFLAGS += -Dd_m3EnableOptimizations=1
 
 # COMPONENT_ADD_LDFRAGMENTS += linker.lf
