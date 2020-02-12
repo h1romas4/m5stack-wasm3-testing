@@ -6,9 +6,12 @@ COMPONENT_SRCDIRS := src
 COMPONENT_ADD_INCLUDEDIRS := src
 
 CFLAGS += -DESP32
-CFLAGS += -DM3_IN_IRAM
+# CFLAGS += -DM3_IN_IRAM
+CFLAGS += -Dd_m3LogOutput=false
 CFLAGS += -Dd_m3LogOutput=false
 CFLAGS += -O3
 CFLAGS += -freorder-blocks
+# CFLAGS += -Dd_m3MaxFunctionStackHeight=128
+# CFLAGS += -Dd_m3CodePageAlignSize=4096
 
-COMPONENT_ADD_LDFRAGMENTS += linker.lf
+# COMPONENT_ADD_LDFRAGMENTS += linker.lf
