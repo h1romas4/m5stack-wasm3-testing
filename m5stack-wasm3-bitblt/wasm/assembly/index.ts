@@ -1,6 +1,6 @@
 import * as m5stack from "./arduino";
 
-var width: i32, height: i32;
+var width: u32, height: u32;
 
 /** Gets an input pixel in the range [0, s]. */
 @inline
@@ -14,12 +14,13 @@ function pset(x: u32, y: u32, v: u8): void {
     store<u8>(y * width + x, v);
 }
 
-export function draw(w: i32, h: i32): void {
-    width = w;
+export function draw(w: u32, h: u32): void {
+    width  = w;
     height = h;
-
-    for (let r = 0; r < width / 2; r++) {
-        circle(w / 2, h / 2, r, <u8>m5stack.random(256));
+    let hWidth  = w / 2;
+    let hHeight = h / 2;
+    for (let r: u32 = 0; r < hWidth; r++) {
+        circle(hWidth, hHeight, r, <u8>m5stack.random(256));
     }
 }
 
@@ -37,7 +38,7 @@ function circle(x: i32, y: i32, r: i32, color: u8): void {
         pset(x - yy, y - xx, color);
         pset(x + yy, y - xx, color);
         pset(x + xx, y - yy, color);
-        if(err <= 0) {
+        if (err <= 0) {
             yy++;
             err += 2 * yy + 1;
         } else {
