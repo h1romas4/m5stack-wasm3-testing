@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "asbuild:optimized": "asc assembly/index.ts -b build/app.wasm -t build/app.wat --memoryBase 57600 --validate --sourceMap --optimize",
+        "asbuild:optimized": "asc assembly/index.ts -b build/app.wasm -t build/app.wat --memoryBase 57600 --use --validate --sourceMap --optimize",
         "asbuild": "npm run asbuild:optimized && xxd -i build/app.wasm > build/app.wasm.h && cp -p build/app.wasm.h ../main"
     },
     "devDependencies": {

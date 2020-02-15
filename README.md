@@ -16,38 +16,29 @@ gcc version 5.2.0 (crosstool-NG crosstool-ng-1.22.0-80-g6c4433a)
 
 ## Build
 
-**Compile**
-
 ```
 git clone --recursive https://github.com/h1romas4/m5stack-wasm3-testing.git
 cd m5stack-wasm3-testing
 # This repository includes eps-idf v3.2.3
 export IDF_PATH=$(pwd)/esp-idf
+```
+
+### m5stack-wasm3-fib3
+
+```
 cd m5stack-wasm3-fib32
 make flash monitor
 ```
 
-## ToDo
-
-* [Performance / Wasm3 on MCUs](https://github.com/wasm3/wasm3/blob/master/docs/Performance.md#wasm3-on-mcus)
-
-m5stack-wasm3-fib32/main/main.cpp
+### m5stack-wasm3-bitblt
 
 ```
-// const char* i_argv[2] = { "24", NULL }; // TODO: It will be reset.
-const char* i_argv[2] = { "16", NULL };
-result = m3_CallWithArgs (f, 1, i_argv);
-```
-
-```
-Total sizes:
- DRAM .data size:    7496 bytes
- DRAM .bss  size:    7280 bytes
-Used static DRAM:   14776 bytes ( 109804 available, 11.9% used)
-Used static IRAM:  114268 bytes (  16804 available, 87.2% used)
-      Flash code:  172466 bytes
-    Flash rodata:  131136 bytes
-Total image size:~ 425366 bytes (.bin may be padded larger)
+cd m5stack-wasm3-bitblt
+cd wasm
+npm install
+npm run asbuild
+cd ..
+make flash monitor
 ```
 
 ## Dependencies
