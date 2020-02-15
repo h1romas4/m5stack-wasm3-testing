@@ -24,6 +24,7 @@ export function draw(w: u32, h: u32): void {
     }
 }
 
+@inline
 function circle(x: i32, y: i32, r: i32, color: u8): void {
     let xx  = r;
     let yy  = 0;
