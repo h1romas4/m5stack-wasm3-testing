@@ -4,9 +4,9 @@
 [submodule "wasm3"]
 	path = wasm3
 	url = https://github.com/wasm3/wasm3.git
-[submodule "m5stack-wasm3-fib32/components/arduino"]
-	path = m5stack-wasm3-fib32/components/arduino
+[submodule "components/arduino-esp32"]
+	path = components/arduino-esp32
 	url = https://github.com/espressif/arduino-esp32.git
-[submodule "m5stack-wasm3-fib32/components/m5stack"]
-	path = m5stack-wasm3-fib32/components/m5stack
+[submodule "components/M5Stack"]
+	path = components/M5Stack
 	url = https://github.com/m5stack/M5Stack.git
