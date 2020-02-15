@@ -46,6 +46,7 @@ make flash monitor
 |name|version|
 |-|-|
 |[Wasm3](https://github.com/wasm3/wasm3)|0.4.6|
+|[AssemblyScript](https://github.com/AssemblyScript/assemblyscript)|0.9.1|
 |[esp-idf](https://docs.espressif.com/projects/esp-idf/en/v3.2.3/get-started/index.html)|v3.2.3|
 |[esp32-arduino](https://github.com/espressif/arduino-esp32)|1.0.4|
 |[m5stack](https://github.com/m5stack/M5Stack)|0.2.9|
