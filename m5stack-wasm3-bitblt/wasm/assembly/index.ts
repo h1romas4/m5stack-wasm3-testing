@@ -1,27 +1,48 @@
 import * as m5stack from "./arduino";
 
-var w: i32, h: i32, s: i32;
+var width: i32, height: i32;
 
 /** Gets an input pixel in the range [0, s]. */
 @inline
-function get(x: u32, y: u32): u8 {
-    return load<u8>(y * w + x);
+function pget(x: u32, y: u32): u8 {
+    return load<u8>(y * width + x);
 }
 
 /** Sets an output pixel in the range [s, 2*s]. */
 @inline
-function set(x: u32, y: u32, v: u8): void {
-    store<u8>(y * w + x, v);
+function pset(x: u32, y: u32, v: u8): void {
+    store<u8>(y * width + x, v);
 }
 
-export function init(width: i32, height: i32): void {
-    w = width;
-    h = height;
+export function draw(w: i32, h: i32): void {
+    width = w;
+    height = h;
 
-    // Start by filling output with random live cells.
-    for (let y = 0; y < h; ++y) {
-        for (let x = 0; x < w; ++x) {
-            set(x, y, <u8>m5stack.random(256));
+    for (let r = 0; r < width / 2; r++) {
+        circle(w / 2, h / 2, r, <u8>m5stack.random(256));
+    }
+}
+
+function circle(x: i32, y: i32, r: i32, color: u8): void {
+    let xx = r;
+    let yy = 0;
+    let err = 0;
+
+    while(xx >= yy) {
+        pset(x + xx, y + yy, color);
+        pset(x + yy, y + xx, color);
+        pset(x - yy, y + xx, color);
+        pset(x - xx, y + yy, color);
+        pset(x - xx, y - yy, color);
+        pset(x - yy, y - xx, color);
+        pset(x + yy, y - xx, color);
+        pset(x + xx, y - yy, color);
+        if(err <= 0) {
+            yy++;
+            err += 2 * yy + 1;
+        } else {
+            xx--;
+            err -= 2 * xx + 1;
         }
     }
 }

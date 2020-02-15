@@ -29,6 +29,13 @@ M3Result LinkArduino(IM3Runtime runtime) {
     return m3Err_none;
 }
 
+IM3Environment env;
+IM3Runtime runtime;
+IM3Module module;
+IM3Function draw;
+
+const char* i_argv[3] = { "240", "240", NULL };
+
 static void run_wasm(void)
 {
     M3Result result = m3Err_none;
@@ -36,13 +43,12 @@ static void run_wasm(void)
     uint8_t* wasm = (uint8_t*)build_app_wasm;
     uint32_t fsize = build_app_wasm_len - 1;
 
-    IM3Environment env = m3_NewEnvironment ();
+    env = m3_NewEnvironment ();
     if (!env) FATAL("m3_NewEnvironment failed");
 
-    IM3Runtime runtime = m3_NewRuntime (env, 1024, NULL);
+    runtime = m3_NewRuntime (env, 1024, NULL);
     if (!runtime) FATAL("m3_NewRuntime failed");
 
-    IM3Module module;
     result = m3_ParseModule (env, &module, wasm, fsize);
     if (result) FATAL("m3_ParseModule: %s", result);
 
@@ -54,18 +60,8 @@ static void run_wasm(void)
     if (result) FATAL("LinkArduino %s", result);
 
     // function lookup
-    IM3Function init;
-    result = m3_FindFunction (&init, runtime, "init");
+    result = m3_FindFunction (&draw, runtime, "draw");
     if (result) FATAL("m3_FindFunction: %s", result);
-
-    // call wasm
-    const char* i_argv[3] = { "240", "240", NULL };
-    result = m3_CallWithArgs (init, 2, i_argv);
-    if (result) FATAL("m3_CallWithArgs: %s", result);
-
-    // bitblt
-    uint8_t* vram = (uint8_t*)(m3_GetMemory(runtime, 0, 0));
-    M5.Lcd.pushImage(40, 0, 240, 240, vram, true);
 }
 
 // the setup routine runs once when M5Stack starts up
@@ -78,12 +74,17 @@ void setup(){
     clock_t start = clock();
     run_wasm();
     clock_t end = clock();
-
-    M5.Lcd.printf("\nWasm3 v" M3_VERSION " on ESP32, build " __DATE__ " " __TIME__ "\n\n");
-    M5.Lcd.printf("Elapsed: %ld ms\n\n", (end - start) * 1000 / CLOCKS_PER_SEC);
-    M5.Lcd.printf("free memory: %d byte\n\n", heap_caps_get_free_size(MALLOC_CAP_8BIT));
 }
 
 // the loop routine runs over and over again forever
 void loop() {
+    M3Result result = m3Err_none;
+
+    // call wasm
+    result = m3_CallWithArgs (draw, 2, i_argv);
+    if (result) FATAL("m3_CallWithArgs: %s", result);
+
+    // bitblt
+    uint8_t* vram = (uint8_t*)(m3_GetMemory(runtime, 0, 0));
+    M5.Lcd.pushImage(40, 0, 240, 240, vram, true);
 }
