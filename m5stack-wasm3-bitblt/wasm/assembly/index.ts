@@ -3,16 +3,16 @@ import * as m5stack from "./arduino";
 var width: u32, height: u32;
 
 /** Gets an input pixel in the range [0, s]. */
-@inline
-function pget(x: u32, y: u32): u8 {
-    return load<u8>(y * width + x);
-}
+// @inline
+// function pget(x: u32, y: u32): u8 {
+//     return load<u8>(y * width + x);
+// }
 
 /** Sets an output pixel in the range [s, 2*s]. */
-@inline
-function pset(x: u32, y: u32, v: u8): void {
-    store<u8>(y * width + x, v);
-}
+// @inline
+// function pset(x: u32, y: u32, v: u8): void {
+//     store<u8>(y * width + x, v);
+// }
 
 export function draw(w: u32, h: u32): void {
     width  = w;
