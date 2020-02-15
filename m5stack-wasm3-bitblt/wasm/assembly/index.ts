@@ -25,19 +25,31 @@ export function draw(w: u32, h: u32): void {
 }
 
 function circle(x: i32, y: i32, r: i32, color: u8): void {
-    let xx = r;
-    let yy = 0;
+    let xx  = r;
+    let yy  = 0;
     let err = 0;
+    let w   = width;
 
-    while(xx >= yy) {
-        pset(x + xx, y + yy, color);
-        pset(x + yy, y + xx, color);
-        pset(x - yy, y + xx, color);
-        pset(x - xx, y + yy, color);
-        pset(x - xx, y - yy, color);
-        pset(x - yy, y - xx, color);
-        pset(x + yy, y - xx, color);
-        pset(x + xx, y - yy, color);
+    let yyw: i32;
+    let xxw: i32;
+    let xyw = y * w + x;
+
+    while (xx >= yy) {
+        yyw = yy * w;
+        xxw = xx * w;
+
+        store<u8>(xyw + (yyw + xx), color);
+        store<u8>(xyw + (xxw + yy), color);
+
+        store<u8>(xyw + (xxw - yy), color);
+        store<u8>(xyw + (yyw - xx), color);
+
+        store<u8>(xyw - (yyw + xx), color);
+        store<u8>(xyw - (xxw + yy), color);
+
+        store<u8>(xyw - (xxw - yy), color);
+        store<u8>(xyw - (yyw - xx), color);
+
         if (err <= 0) {
             yy++;
             err += 2 * yy + 1;
