@@ -29,26 +29,20 @@ function circle(x: i32, y: i32, r: i32, color: u8): void {
     let yy  = 0;
     let err = 0;
     let w   = width;
-
-    let yyw: i32;
-    let xxw: i32;
     let xyw = y * w + x;
 
     while (xx >= yy) {
-        yyw = yy * w;
-        xxw = xx * w;
+        store<u8>(xyw + (yy * w + xx), color);
+        store<u8>(xyw + (xx * w + yy), color);
 
-        store<u8>(xyw + (yyw + xx), color);
-        store<u8>(xyw + (xxw + yy), color);
+        store<u8>(xyw + (xx * w - yy), color);
+        store<u8>(xyw + (yy * w - xx), color);
 
-        store<u8>(xyw + (xxw - yy), color);
-        store<u8>(xyw + (yyw - xx), color);
+        store<u8>(xyw - (yy * w + xx), color);
+        store<u8>(xyw - (xx * w + yy), color);
 
-        store<u8>(xyw - (yyw + xx), color);
-        store<u8>(xyw - (xxw + yy), color);
-
-        store<u8>(xyw - (xxw - yy), color);
-        store<u8>(xyw - (yyw - xx), color);
+        store<u8>(xyw - (xx * w - yy), color);
+        store<u8>(xyw - (yy * w - xx), color);
 
         if (err <= 0) {
             yy++;
