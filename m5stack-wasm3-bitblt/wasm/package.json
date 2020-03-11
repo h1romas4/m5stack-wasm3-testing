@@ -4,6 +4,6 @@
         "asbuild": "npm run asbuild:optimized && xxd -i build/app.wasm > build/app.wasm.h && cp -p build/app.wasm.h ../main"
     },
     "devDependencies": {
-        "assemblyscript": "^0.9.1"
+        "assemblyscript": "^0.9.3"
     }
 }
