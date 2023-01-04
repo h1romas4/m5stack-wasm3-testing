@@ -6,9 +6,9 @@ WebAssembly interpreter [Wasm3](https://github.com/wasm3/wasm3) on M5Stack.
 
 [https://www.youtube.com/watch?v=K21BKxFenxQ](https://www.youtube.com/watch?v=K21BKxFenxQ)
 
-*This repository has been archived. See newer version below.*
+**This repository has been archived. See newer version below.**
 
-> (https://github.com/h1romas4/m5stack-core2-wasm3-as)[https://github.com/h1romas4/m5stack-core2-wasm3-as]
+> [https://github.com/h1romas4/m5stack-core2-wasm3-as](https://github.com/h1romas4/m5stack-core2-wasm3-as)
 
 ## Require
 
